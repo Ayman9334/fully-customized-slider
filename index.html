@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+    <title>Frontend Mentor | Fylo data storage component</title>
+    <link rel="stylesheet" href="./temp/style.css">
+
+</head>
+
+<body>
+    <img class="bgdisktop" src="./images/bg-desktop.png" alt="">
+    <div class="container">
+        <div class="frstctn">
+            <div class="logo">
+                <img src="./images/logo.svg" alt="">
+            </div>
+            <div class="links">
+                <div><img style="width: 2rem;" src="./images/icon-document.svg" alt=""></div>
+                <div><img style="width: 2.5rem;" src="./images/icon-folder.svg" alt=""></div>
+                <div><img style="width: 2.5rem;" src="./images/icon-upload.svg" alt=""></div>
+
+            </div>
+        </div>
+        <div class="secctn">
+            <p>You've used <span id="used">500 GB</span> of your storage</p>
+            <div class="slider">
+                <input id="myinput" type="range" min="0" max="1000" value="500" class="range">
+                <div>
+                    <span>0 GB</span>
+                    <span>1000 GB</span>
+                </div>
+            </div>
+            <div class="left">
+                <h1 id="rest">500</h1><p> GB LEFT</p> 
+            </div>
+        </div>
+        
+    </div>
+
+
+    <script>
+        document.getElementById("myinput").oninput = function() {
+            var fr = this.value/10
+            this.style.background = 'linear-gradient(to right, hsl(6, 100%, 80%) 0%, hsl(335, 100%, 65%) ' + fr + '%, hsl(229, 57%, 11%) ' + fr + '%, hsl(229, 57%, 11%) 100%)'
+            document.getElementById('used').innerText = String(this.value) + ' GB'
+            document.getElementById('rest').innerText = String(1000 - this.value)
+        };
+    </script>
+        
+</body>
+
+</html>
